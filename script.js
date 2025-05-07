@@ -487,6 +487,27 @@ function realizarElección(arrayDeElecciones){
     btnIrAElegir.style.display='unset'
 }
 
+let scrollAhora = false
+let detenerScrollAhora
+function funcDetenerScrollAhora(){
+  detenerScrollAhora = setTimeout(()=>{
+    scrollAhora = false
+    barraSuperior.style.filter='opacity(100%)'
+    barraSuperior.style.backdropFilter=''
+  }, 1000)  
+}
+document.addEventListener('scroll', ()=>{
+  if (!scrollAhora){
+    scrollAhora = true
+    barraSuperior.style.filter='opacity(0%)'
+    barraSuperior.style.backdropFilter='blur(0)'
+    funcDetenerScrollAhora()
+  }
+  else{
+    clearTimeout(detenerScrollAahora)
+    funcDetenerScrollAhora()
+  }
+})
 
 
 const mensajes1 = [
@@ -610,3 +631,8 @@ const elección1 = [{
 
 procesarMensajesDosPersonas(mensajes1, ()=>{realizarElección(elección1)})
 
+/*faltan hacer cambios, como el tema de aumentar el tamaño de los audios para que se vea mejor y arreglar el botón de play, pause. podemos ver si aumentamos el margen superior del chat
+falta hacerle la introducción a la web, recuerda la manera de hacer que se salte la intro al hacer un click.
+falta corregir el centrado de los elementos en la ventana que a veces quedan un poco más hacia abajo de lo que me gustaría
+
+*/

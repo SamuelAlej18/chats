@@ -24,7 +24,7 @@ main{
     display: flex;
     flex-direction: column;
     width: 90vw;
-    min-height: 100vh;
+    height: max-content;
     max-width: 480px;
     padding: 0px 25px 5px 25px;
 }
@@ -82,7 +82,8 @@ main{
     background-color: transparent;
     border: none;
     color: white;
-    letter-spacing: 2px;
+    font-weight: bolder;
+    /*letter-spacing: 2px;*/
 }
 .controlesAudio > button:hover{
     color: gray;
@@ -257,7 +258,7 @@ main{
     }
 }
 
-@media (min-width:755px){
+@media (min-width : 785px){
     #barraSuperiorChat{
         backdrop-filter: blur(0);
         border: none;
