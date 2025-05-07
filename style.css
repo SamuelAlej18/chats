@@ -1,0 +1,266 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+#fondo{
+    background:left url(fondo.webp) no-repeat;
+    background-size: cover;
+    width: 100vw;
+    height: 120vh;
+    position: fixed;
+    top: 0;
+    z-index: -1;
+    transition: all 0.5s ease;
+}
+#chat{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    width: 90vw;
+    min-height: 100vh;
+    max-width: 480px;
+    padding: 0px 25px 5px 25px;
+}
+
+#barraSuperiorChat{
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 70px;
+    position: sticky;
+    top: 0;
+    transition: all 0.75s ease;
+    padding: 5px 0 2px 10px;
+    backdrop-filter: blur(5px);
+    background: linear-gradient(to bottom, hwb(0 0% 100%),hwb(0 0% 100% / 0.029));
+    z-index: 3;
+}
+#fotoDePerfil{
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    margin: 10px;
+    border: solid 1px black;
+}
+.conectado::after{
+    content: '•';
+    color: greenyellow;
+    margin-left: 5px ;
+}
+.mensaje{
+    width: fit-content;
+    max-width: 75%;
+    border-radius: 5px;
+    padding:6px 10px;
+    margin-bottom: 3px;
+}
+.controlesAudio{
+    width: 60%;
+    max-width: fit-content;
+    border-radius: 5px;
+    padding:8px 10px 1px 13px;
+    margin-bottom: 3px;
+    width: fit-content;
+    display: grid;
+    grid-template-columns: auto 1fr 1fr;
+    grid-template-rows: min-content min-content;
+    grid-template-areas: 'btn input input''. tiempoAudio hora';
+    
+    color: white;
+}
+.controlesAudio > button{
+    grid-area: btn;
+    margin-top: 3px;
+    background-color: transparent;
+    border: none;
+    color: white;
+    letter-spacing: 2px;
+}
+.controlesAudio > button:hover{
+    color: gray;
+}
+.controlesAudio > h6{
+    margin-left: 4px;
+    margin-top: -3px;
+}
+.tiempoAudio{
+    grid-area: tiempoAudio;
+}
+.controlesAudio > input{
+    grid-area: input;
+    width: 40vw;
+    max-width: 200px;
+}
+.horaMensajeVoz{
+    grid-area: hora;
+    text-align: end;
+}
+.mensajePropio > .horaMensajeVoz::after{
+    content: '✓✓';
+    letter-spacing: -4px;
+    padding: 5px 0 5px 5px;
+    font-size: smaller;
+    color: #00b3ff;
+}
+.mensajePropio{
+    align-self: flex-end;
+    background-color: hwb(267 14% 20% / 0.7);
+}
+.mensajeVisto::after{
+    content: '✓✓';
+    letter-spacing: -4px;
+    padding: 5px 0 5px 5px ;
+    font-size: smaller;
+    color: #00b3ff;
+}
+
+.mensajeOtraPersona{
+    background-color:  rgba(0, 0, 0, 0.7);
+}
+
+.mensaje > h5{
+    color: white;
+    margin-left: 3px;
+}
+.textoInvisible{
+    color: transparent;
+}
+
+#divEscribiendoOtraPersona{
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 5px 10px;
+    width: fit-content;
+    border-radius: 5px;
+}
+#divEscribiendoOtraPersona > span{
+    position: relative;
+    bottom: -2px;
+}
+
+.horaMensaje{
+    text-align: right;
+    align-self: flex-end;
+    margin-left: 7px;
+    color: hwb(0 100% 0%);
+    margin-bottom: -5px;
+    margin-top:5px;
+}
+
+#divElecciones{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: 3;
+    left: 0;
+    top: 0;
+}
+
+#btnRegresarAElegir{
+    display: none;
+    margin-top: 7px;
+}
+
+.btnChat{
+    border: none;
+    border-radius: 5px;
+    background-color: hwb(267 14% 20% / 0.85);
+    margin-bottom: 3px;
+    width: 70vw;
+    max-width: 480px;
+    padding: 6px 10px;
+    color: white;
+    align-self: center;
+}
+.btnChat:hover{
+    background-color: rgba(91, 33, 162, 0.85);
+}
+
+.divImgChat{
+    border: solid 3.5px;
+    border-radius: 10px;
+    width: 50%;
+    max-height: 80vh;
+    max-width: fit-content;
+    margin-bottom: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.divImgChat > img{
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.contenedorImgGrande{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3;
+}
+
+.imgGrande{
+    width: 100%;
+    max-width: fit-content;
+    max-height: 100%;
+}
+
+.contenedorStickers{
+    display: flex;
+    flex-wrap: wrap;
+    width: 75%;
+    margin-bottom: 5px;
+    gap : 4px;
+}
+.sticker{
+    width : 40%;
+    aspect-ratio: 1/1;
+}
+
+
+@keyframes escribiendoMensaje{
+    0%{
+        bottom: -2px;
+        filter: opacity(60%);
+    }
+    20%{
+        bottom: 3.5px;
+    }
+
+    40%{
+        bottom: -2px;
+        filter: opacity(100%);
+    }
+    100%{
+        bottom: -2px;
+        filter: opacity(60%);
+    }
+}
+
+@media (min-width:755px){
+    #barraSuperiorChat{
+        backdrop-filter: blur(0);
+        border: none;
+        background-color: unset;
+    }
+}
